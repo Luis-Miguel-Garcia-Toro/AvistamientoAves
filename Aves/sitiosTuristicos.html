@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Página Avistamiento</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	
+	<script type="text/javascript">
+
+		function loadLocation () {
+			//inicializamos la funcion y definimos  el tiempo maximo ,las funciones de error y exito.
+			navigator.geolocation.getCurrentPosition(viewMap,ViewError,{timeout:1000});
+		}
+		 
+		//Funcion de exito
+		function viewMap (position) {
+			
+			var lon = position.coords.longitude;	//guardamos la longitud
+			var lat = position.coords.latitude;		//guardamos la latitud
+		 
+			var link = "http://maps.google.com/?ll="+lat+","+lon+"&z=14";
+			document.getElementById("long").innerHTML = "Longitud: "+lon;
+			document.getElementById("latitud").innerHTML = "Latitud: "+lat;
+		 
+			document.getElementById("link").href = link; 
+		}  
+		function ViewError (error) {
+			alert(error.code);
+		}	 
+		</script>
+		
+   
+</head>
+
+<body>
+    <header>
+        <nav>
+            <section class="contenedor nav">
+                <div class="logo">
+                    <img src="img/logoAves.jpg" alt="">
+                    <img src="">
+                </div>
+                <div class="enlaces-header">
+                    <a href="index.html">Inicio</a>
+                    <a href="#">Acerca de</a>
+                    <a href="galeria.html">Galeria</a>
+                    <a href="https://www.eltiempo.com/noticias/aves">Noticias</a>                    
+                </div>
+                <div class="hamburguer">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </section>
+        </nav>
+        <div class="contenedor">
+            <section class="contenido-header">
+                <section class="textos-header">
+                    <h1>Conoce los Mejores Lugares del Departamento</h1>
+                    <p>Lugares para recorrer y conocer un poco del Paisaje Cultural Cafetero</p>    				
+					
+					<h2 class="card-title">Tus Coordenadas Son:</h2>
+					<label id="long"></label>
+					<label id="latitud"></label>
+					<a id="link" target="_blank">  >Enlace al Mapa</button></a>
+                </section>
+                <iframe src="https://www.google.com/maps/d/embed?mid=1vZZ1-g10iQDkkobw88_iTKayUYTCaWJB" width="1100" height="450"></iframe>
+			</section>
+			 
+        </div>
+	</header>
+	
+
+
+<body onload="loadLocation();" style="padding-block-start: 0px;">		
+	
+
+</body>
+
+    
+
+    <footer>
+        <div class="partFooter">
+            <img src="img/logoAves.jpg" alt="">
+        </div>
+        <div class="partFooter">
+            <h4>Servicios</h4>
+            <a href="#">Servicios Personalizados</a>
+           
+        </div>
+        <div class="partFooter">
+            <h4>Acerca de</h4>
+            <a href="#">comunidad</a>
+            <a href="#">Nosotros</a>
+            
+        </div>
+        <div class="partFooter">
+            <h4>Redes sociales</h4>
+            <div class="social-media">
+                <ul>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                    
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/c15b744a04.js" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
